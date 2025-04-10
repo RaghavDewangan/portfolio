@@ -5,5 +5,101 @@ body {
     display: block;
     font: 100%/1.5 system-ui;
     max-width: 100ch;
-    margin:8px;
+    margin:auto;
+    padding: 0 1rem;
+    accent-color: var(--color-accent); 
   }
+
+  :root {
+    --color-accent: oklch(70% 50% 70); /* Define the accent color */
+  }
+
+  nav ul {
+    display: contents;  /* Removes list styling and block behavior */
+  }
+
+  nav li {
+    display: contents;  /* Removes list item styling */
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;  /* Add some space below the navigation */
+    border-bottom: 1px solid oklch(80% 3% 200);  /* Subtle gray border */
+    padding: 0.5em;  /* Add some padding around the nav bar */
+  }
+
+  nav a {
+    text-decoration: none;      /* Remove underline */
+    color: inherit;             /* Inherit text color from parent */
+    text-align: center;         /* Center the text */
+    padding: 0.5em;             /* Add space around the link */
+    display: block;             /* Make <a> tags block-level to enable padding */
+  }
+  
+  nav a.current {
+    border-bottom: 0.4em solid var(--color-accent);  /* Lighter border for the current page */
+    padding-bottom: 0.2em;           /* Reduce padding to counteract border thickness */
+    font-weight: bold;               /* Make it bold to stand out */
+    color: inherit;                  /* Keep the text color consistent */
+  }
+
+  nav a:hover {
+    background-color: #f0f0f0;
+    border-bottom: 0.4em solid var(--color-accent);
+  }
+
+  nav a:not(.current) {
+    margin-right: 1em;  /* Space between links */
+  }
+
+  /* contact form*/
+
+  form {
+    display: flex;
+    flex-direction: column;   /* Stack form elements vertically */
+    gap: 1rem;                /* Add space between elements */
+    max-width: 500px;         /* Limit the width of the form */
+    margin: 0 auto;           /* Center the form */
+  }
+  
+  /* Step 1: Ensure labels and form controls behave like block elements */
+label,
+input,
+textarea,
+button {
+  display: block;          /* Makes these elements behave like block elements */
+  width: 100%;             /* Ensure form controls take the full width of the container */
+  box-sizing: border-box;  /* Include padding and borders in the width calculation */
+}
+
+label {
+  margin-block: 0.1em;      /* Add spacing before and after labels */
+  font-weight: bold;        /* Bold labels for readability */
+}
+
+/* Step 3: Style input fields */
+input, textarea {
+  padding: 0.75em;          /* Add padding for better user experience */
+  border: 1px solid #ccc;   /* Add light borders */
+  border-radius: 5px;       /* Round the corners of inputs */
+  margin-bottom: 1em;       /* Add space below each input for better readability */
+}
+
+/* Step 4: Style the button */
+button {
+  padding: 1em;             /* Add padding for the button */
+  background-color: var(--color-accent);  /* Use accent color */
+  color: white;             /* White text */
+  border: none;             /* Remove default border */
+  border-radius: 5px;       /* Rounded corners */
+  cursor: pointer;         /* Pointer cursor to show it's clickable */
+  margin-top: 1em;          /* Add space above the button */
+}
+
+/* Step 5: Hover effect for the button */
+button:hover {
+  background-color: #0056b3;  /* Change color on hover */
+}
