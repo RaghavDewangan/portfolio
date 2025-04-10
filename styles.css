@@ -103,3 +103,47 @@ button {
 button:hover {
   background-color: #0056b3;  /* Change color on hover */
 }
+
+/*projects*/
+.projects {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive columns */
+  gap: 1rem; /* Space between grid items */
+  padding: 1rem; /* Padding around the grid */
+}
+
+/* Style for each article (project item) */
+.projects article {
+  background-color: #f9f9f9; /* Light background for each project */
+  border: 1px solid #ccc; /* Border around each article */
+  border-radius: 5px; /* Rounded corners */
+  padding: 1rem; /* Padding inside each article */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projects article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Style for the article heading */
+.projects article h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Style for images inside each article */
+.projects article img {
+  width: 50%; /* Make the image fill the available width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Style for paragraphs inside each article */
+.projects article p {
+  font-size: 1rem;
+  color: #666; /* Dark gray text for paragraphs */
+}
