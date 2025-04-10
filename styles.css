@@ -10,6 +10,16 @@ body {
     accent-color: var(--color-accent); 
   }
 
+  img[alt="LinkedIn Profile Picture of Raghav"] {
+    max-width: 250px;       /* Sets maximum width */
+    width: 100%;            /* Makes it responsive */
+    height: auto;           /* Maintains aspect ratio */
+    border-radius: 50%;     /* Makes it circular */
+    display: block;         /* Centers the image */
+    margin: 1.5rem auto;    /* Adds space around and centers */
+    border: 3px solid var(--color-accent); /* Accent color border */
+  }
+
   :root {
     --color-accent: oklch(70% 50% 70); /* Define the accent color */
   }
