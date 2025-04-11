@@ -10,6 +10,52 @@ body {
     accent-color: var(--color-accent); 
   }
 
+  body {
+    font: 100%/1.5 system-ui;
+    color: #333;
+  }
+  
+  /* Heading Hierarchy with Nesting */
+  :is(h1, h2, h3, h4, h5, h6) {
+    line-height: 1.1;
+    text-wrap: balance;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: oklch(25% 10% 270);
+  }
+  
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive scaling */
+    max-width: 15ch;
+    line-height: 1;
+  }
+  
+  h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.25em;
+    display: inline-block;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+  }
+  
+  h5 {
+    font-size: 1.125rem;
+  }
+  
+  h6 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   img[alt="LinkedIn Profile Picture of Raghav"] {
     max-width: 250px;       /* Sets maximum width */
     width: 100%;            /* Makes it responsive */
@@ -116,44 +162,64 @@ button:hover {
 
 /*projects*/
 .projects {
-  display: grid; /* Use grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive columns */
-  gap: 1rem; /* Space between grid items */
-  padding: 1rem; /* Padding around the grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
-/* Style for each article (project item) */
 .projects article {
-  background-color: #f9f9f9; /* Light background for each project */
-  border: 1px solid #ccc; /* Border around each article */
-  border-radius: 5px; /* Rounded corners */
-  padding: 1rem; /* Padding inside each article */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: subgrid; /* Key property for alignment */
+  grid-row: span 3; /* Each article spans 3 rows */
+  gap: 1em; /* Internal spacing */
+  
+  background-color: #f9f9f9;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.projects article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* Style for the article heading */
 .projects article h2 {
+  margin: 0; /* Remove default heading margins */
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  color: oklch(30% 10% 270);
+  align-self: end; /* Align heading to bottom of its row */
 }
 
-/* Style for images inside each article */
 .projects article img {
-  width: 50%; /* Make the image fill the available width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 5px;
-  margin-bottom: 1rem;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  align-self: center; /* Center image in its row */
 }
 
-/* Style for paragraphs inside each article */
 .projects article p {
+  margin: 0; /* Remove default paragraph margins */
   font-size: 1rem;
-  color: #666; /* Dark gray text for paragraphs */
+  color: #555;
+  line-height: 1.6;
+  align-self: start; /* Align paragraph to top of its row */
+}
+
+.projects h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* Nested heading example for special cases */
+.card {
+  & h2 {
+    font-size: 1.25rem;
+    color: var(--color-accent);
+  }
+  
+  & h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
 }
