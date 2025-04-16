@@ -1,18 +1,20 @@
+:root {
+  color-scheme: light dark;
+}
+
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    display: block;
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin:auto;
-    padding: 0 1rem;
-    accent-color: var(--color-accent); 
-  }
+  font: 100%/1.5 system-ui;
+  background-color: Canvas;
+  color: CanvasText;
+  accent-color: var(--color-accent);
+  max-width: 100ch;
+  margin: auto;
+  padding: 0 1rem;
+}
 
   body {
     font: 100%/1.5 system-ui;
-    color: #333;
+    color: CanvasText;
   }
   
   /* Heading Hierarchy with Nesting */
@@ -22,11 +24,11 @@ body {
     margin-top: 0;
     margin-bottom: 0.5em;
     font-weight: 700;
-    color: oklch(25% 10% 270);
+    color: CanvasText;
   }
   
   h1 {
-    font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive scaling */
+    font-size: clamp(2.5rem, 8vw, 4rem);
     max-width: 15ch;
     line-height: 1;
   }
@@ -77,13 +79,14 @@ body {
   nav li {
     display: contents;  /* Removes list item styling */
   }
-
+  
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1em;  /* Add some space below the navigation */
-    border-bottom: 1px solid oklch(80% 3% 200);  /* Subtle gray border */
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom: 1px solid var(--border-color);
     padding: 0.5em;  /* Add some padding around the nav bar */
   }
 
@@ -103,7 +106,7 @@ body {
   }
 
   nav a:hover {
-    background-color: #f0f0f0;
+    background-color: color-mix(in oklch, var(--color-accent), Canvas 85%);
     border-bottom: 0.4em solid var(--color-accent);
   }
 
@@ -125,7 +128,7 @@ body {
 label,
 input,
 textarea,
-button {
+button{
   display: block;          /* Makes these elements behave like block elements */
   width: 100%;             /* Ensure form controls take the full width of the container */
   box-sizing: border-box;  /* Include padding and borders in the width calculation */
@@ -174,8 +177,8 @@ button:hover {
   grid-row: span 3; /* Each article spans 3 rows */
   gap: 1em; /* Internal spacing */
   
-  background-color: #f9f9f9;
-  border: 1px solid #e1e1e1;
+  background-color: Canvas;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -184,7 +187,7 @@ button:hover {
 .projects article h2 {
   margin: 0; /* Remove default heading margins */
   font-size: 1.25rem;
-  color: oklch(30% 10% 270);
+  color: CanvasText;
   align-self: end; /* Align heading to bottom of its row */
 }
 
@@ -199,7 +202,7 @@ button:hover {
 .projects article p {
   margin: 0; /* Remove default paragraph margins */
   font-size: 1rem;
-  color: #555;
+  color: CanvasText;
   line-height: 1.6;
   align-self: start; /* Align paragraph to top of its row */
 }

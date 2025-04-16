@@ -2,12 +2,13 @@
 /* Consistent with your main site design */
 
 :root {
+    color-scheme: light dark;
     --color-accent: oklch(70% 50% 70);
-    --color-bg: #f9f9f9;
-    --color-text: #333;
-    --color-text-light: #555;
-    --color-border: #e1e1e1;
-    --color-card-bg: #fff;
+    --color-bg: Canvas;
+    --color-text: CanvasText;
+    --color-text-light: oklch(70% 2% 270); /* optional, tweak as needed */
+    --color-border: oklch(50% 10% 200 / 40%);
+    --color-card-bg: color-mix(in oklch, Canvas, white 10%);
   }
   
   /* ===== Base Styles ===== */
