@@ -6,16 +6,16 @@ function $$(selector, context = document) {
 
 // STEP 3.1: Define your site pages
 let pages = [
-  { url: '', title: 'Home' },
-  { url: 'projects/', title: 'Projects' },
-  { url: 'resume/cv.html', title: 'Resume' },
-  { url: 'contact/', title: 'Contact' },
-  { url: 'https://github.com/RaghavDewangan', title: 'GitHub' },
+    { url: 'index.html', title: 'Home' },
+    { url: 'projects/index.html', title: 'Projects' },
+    { url: 'resume/cv.html', title: 'Resume' },
+    { url: 'contact/index.html', title: 'Contact' },
+    { url: 'https://github.com/RaghavDewangan', title: 'GitHub' },
 ];
 
 // STEP 3.1.5: Set base path for local vs GitHub Pages
 const BASE_PATH =
-  location.hostname === "localhost" || location.hostname === "127.0.0.1"
+  location.hostname === "raghavdewangan.github.io" || location.hostname === "127.0.0.1"
     ? "/"
     : "/portfolio/"; // Replace "website" with your actual GitHub repo name
 
