@@ -59,7 +59,7 @@
   }
   
   nav a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: color-mix(in oklch, var(--color-accent), Canvas 85%);
     border-bottom: 0.4em solid var(--color-accent);
   }
   
