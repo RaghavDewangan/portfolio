@@ -43,7 +43,7 @@ for (let p of pages) {
 }
 
 document.body.insertAdjacentHTML(
-    'afterbegin',
+    'beforeend',
     `
     <label class="color-scheme" style="display: block; margin-bottom: 1rem;">
       Theme:
