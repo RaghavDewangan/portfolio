@@ -66,14 +66,33 @@ document.body.insertAdjacentHTML(
     select.value = storedScheme; // update dropdown to match
   }
   
-  // 2. Save user selection and apply it
   select.addEventListener('input', function (event) {
     const value = event.target.value;
   
-    // Save to localStorage
     localStorage.colorScheme = value;
   
-    // Apply theme
     document.documentElement.style.setProperty('color-scheme', value);
     console.log('Color scheme changed to', value);
   });
+
+  export async function fetchJSON(url) {
+    try {
+      // Fetch the JSON file from the given URL
+      const response = await fetch(url);
+      // console.log(response)
+      if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data;
+
+    } catch (error) {
+      console.error('Error fetching or parsing JSON data:', error);
+    }
+  }
+
+  // fetchJSON('../lib/projects.json')
+  // .then(data => console.log(data))
+  // .catch(error => console.error('Error loading data:', error));
+  
