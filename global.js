@@ -63,7 +63,7 @@ document.body.insertAdjacentHTML(
   if ("colorScheme" in localStorage) {
     const storedScheme = localStorage.colorScheme;
     document.documentElement.style.setProperty('color-scheme', storedScheme);
-    select.value = storedScheme; // update dropdown to match
+    select.value = storedScheme;
   }
   
   select.addEventListener('input', function (event) {
@@ -85,6 +85,7 @@ document.body.insertAdjacentHTML(
       }
 
       const data = await response.json();
+      //console.log(data);
       return data;
 
     } catch (error) {
@@ -95,4 +96,44 @@ document.body.insertAdjacentHTML(
   // fetchJSON('../lib/projects.json')
   // .then(data => console.log(data))
   // .catch(error => console.error('Error loading data:', error));
+
+  export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+
+    if (!containerElement) {
+      console.error('Invalid container element');
+      return;
+    }
+
+    containerElement.innerHTML = '';
+
+    projects.forEach(project => {
+      const article = document.createElement('article');
+      const heading = document.createElement(headingLevel);
+      heading.textContent = project.title;
+
+      article.innerHTML = `
+        ${heading.outerHTML} <!-- Insert dynamic heading -->
+        <img src="${project.image || 'default-image.jpg'}" alt="${project.title || 'Untitled Project'}">
+        <p>${project.description || 'No description available'}</p>
+      `;
+
+      containerElement.appendChild(article);
+    });
+  }
+
+  // async function fetchAndRenderProjects() {
+  //   try {
+  //     const projects = await fetchJSON('../lib/projects.json');
+  //     if (projects && Array.isArray(projects)) {
+  //       //console.log('Projects:', projects);
+  //       const projectsContainer = document.querySelector('.projects');
+  //       renderProjects(projects, projectsContainer, 'h2');
+  //     } else {
+  //       console.error('Projects data is not valid:', projects);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching projects:', error);
+  //   }
+  // }
   
+  // fetchAndRenderProjects();
