@@ -109,7 +109,7 @@ document.body.insertAdjacentHTML(
     const projectsTitle = document.querySelector('.projects-title');
 
     if (projectsTitle) {
-      projectsTitle.textContent = `${projects.length} Projects`;  // Show the number of projects
+      projectsTitle.textContent = `${projects.length} Projects`;
     }
 
     projects.forEach(project => {
@@ -143,3 +143,7 @@ document.body.insertAdjacentHTML(
   // }
   
   // fetchAndRenderProjects();
+
+  export async function fetchGithubData(username){
+    return fetchJSON(`https://api.github.com/users/${username}`);
+  }
