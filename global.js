@@ -125,7 +125,7 @@ document.body.insertAdjacentHTML(
   //   try {
   //     const projects = await fetchJSON('../lib/projects.json');
   //     if (projects && Array.isArray(projects)) {
-  //       //console.log('Projects:', projects);
+  //       console.log('Projects:', projects);
   //       const projectsContainer = document.querySelector('.projects');
   //       renderProjects(projects, projectsContainer, 'h2');
   //     } else {
