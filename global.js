@@ -106,6 +106,12 @@ document.body.insertAdjacentHTML(
 
     containerElement.innerHTML = '';
 
+    const projectsTitle = document.querySelector('.projects-title');
+
+    if (projectsTitle) {
+      projectsTitle.textContent = `${projects.length} Projects`;  // Show the number of projects
+    }
+
     projects.forEach(project => {
       const article = document.createElement('article');
       const heading = document.createElement(headingLevel);
