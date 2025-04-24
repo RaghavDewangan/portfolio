@@ -227,3 +227,40 @@ button:hover {
     font-weight: 600;
   }
 }
+
+/* grid layout github stats */
+.profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* Four equal-width columns */
+  gap: 1rem;  /* Spacing between grid items */
+  margin: 10;
+  padding: 10;
+  width: 100%;  /* Make the grid take the full width */
+  max-width: 1000px;  /* Optional: max width for the grid */
+  text-align: center;  /* Center content in the columns */
+}
+
+.profile-stats dt {
+  font-weight: bold;
+  color: #fff;
+}
+
+.profile-stats dd {
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+.profile-stats h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+/* Optional styling for the image */
+.profile-stats img {
+  border-radius: 50%; /* Make image circular */
+  border: 5px solid var(--color-accent);  /* Accent color border */
+  width: 150px;  /* Adjust size as needed */
+  height: 150px;  /* Keep aspect ratio */
+  margin-bottom: 1rem;
+}
