@@ -1,62 +1,74 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "Covid LSTM Time Series Predictor",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis alias culpa quod ad similique illum quae, ut ducimus dicta error, accusamus ab deserunt vitae! Veniam est quibusdam expedita distinctio sapiente!"
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis alias culpa quod ad similique illum quae, ut ducimus dicta error, accusamus ab deserunt vitae! Veniam est quibusdam expedita distinctio sapiente!",
+        "year": "2025"
     },
     {
-        "title": "Voluptas ducimus nulla quae?",
+        "title": "Colories and Ratings EDA ",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptatem, expedita, nisi inventore quo eius non minus porro fuga sit amet laborum minima at, quas deserunt nulla maiores sequi eveniet enim impedit atque tempore vel. Unde iusto aspernatur accusamus."
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis alias culpa quod ad similique illum quae, ut ducimus dicta error, accusamus ab deserunt vitae! Veniam est quibusdam expedita distinctio sapiente!",
+        "year": "2025"
     },
     {
-        "title": "Magnam voluptate delectus sunt.",
+        "title": "San Diego Metro Analysis",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Cupiditate laudantium facere voluptate, dignissimos eligendi quia doloremque autem provident quae dicta illum aliquid sequi harum dolore similique impedit reprehenderit, repellat quam. Debitis aspernatur mollitia natus adipisci eligendi minus sed?"
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis alias culpa quod ad similique illum quae, ut ducimus dicta error, accusamus ab deserunt vitae! Veniam est quibusdam expedita distinctio sapiente!",
+        "year": "2025"
     },
     {
-        "title": "Similique pariatur reiciendis officiis.",
+        "title": "Rentora",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!"
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2024"
     },
     {
-        "title": "Eos quas facere nam?",
+        "title": "SlugAssist Enrollment Helper",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Placeat rerum, voluptatum eum aperiam quam, nam beatae saepe voluptates, nostrum consequuntur omnis enim possimus? Quia ex quas repellendus labore blanditiis, ut molestias, nihil, accusamus consectetur cum illum voluptatem reprehenderit!"
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2024"
     },
     {
-        "title": "Reiciendis officiis eveniet iure?",
+        "title": "UCSC Enrollment Helper",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Facere maiores nihil tempore ad doloremque voluptate doloribus id in repellendus temporibus est delectus commodi excepturi hic pariatur quod maxime earum ipsum voluptatum tempora consectetur, iure porro odio. Incidunt, illum."
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2024"
     },
     {
-        "title": "Repellat sunt nobis enim!",
+        "title": "IMDb Web Scraper",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eligendi distinctio, accusamus odio a esse deleniti et quae expedita dolores tempora recusandae fuga atque, vel voluptas suscipit aliquid obcaecati labore soluta provident, consequuntur quasi incidunt corrupti porro? Tenetur, eos?"
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2023"
     },
     {
-        "title": "Quia rerum consequatur sunt.",
+        "title": "Travelling Salesman Problem",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eum molestias ab dicta aut alias. Suscipit dignissimos perferendis sapiente, sit quasi corporis velit obcaecati non, ex expedita ducimus dicta! Fuga sed necessitatibus dolor reprehenderit nostrum, eum commodi beatae itaque?"
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2023"
     },
     {
-        "title": "Sequi enim dolorem consectetur.",
+        "title": "iCrawler CelebA Dataset",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptas magni, aliquam provident explicabo ex culpa dolore vitae pariatur, delectus debitis incidunt doloribus officia ullam ducimus voluptatem deserunt non amet tenetur dolorum, aperiam recusandae. Veritatis fuga minima dicta veniam."
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2023"
     },
     {
-        "title": "Ex error ipsa quisquam?",
+        "title": "Game of Life in JavaScript",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ullam neque dicta laudantium, atque quas officia aut error, non iusto eaque sint omnis labore sapiente ipsam dolor. Modi odit illum nulla tempora itaque nihil dolore adipisci blanditiis excepturi commodi."
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2022"
     },
     {
-        "title": "Eaque molestiae excepturi hic.",
+        "title": "Zombie Apocalypse Roblox Game",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nobis ipsum voluptatibus sequi itaque culpa vero, nesciunt, a blanditiis accusamus, laborum possimus iure voluptatem! Ipsam, vel? Architecto tenetur aspernatur error quia excepturi quasi! Perferendis laboriosam quis commodi delectus libero?"
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2022"
     },
     {
-        "title": "Libero necessitatibus cumque culpa.",
+        "title": "Hello World",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Distinctio placeat, reiciendis dolorum possimus natus, culpa quasi exercitationem quae nulla, quisquam quos voluptate minus veritatis? Repellat labore fugiat assumenda inventore, ut exercitationem, omnis mollitia saepe, nulla adipisci ipsam veritatis."
+        "description": "Enim ipsa ab dolores quo, eos dicta porro magni fuga tempore consequuntur facilis repellat odio earum illum molestiae eligendi facere praesentium excepturi consectetur, quos, ipsam sit natus nesciunt voluptatibus. Sint!",
+        "year": "2022"
     }
 ]

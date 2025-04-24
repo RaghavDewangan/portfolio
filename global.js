@@ -117,8 +117,11 @@ document.body.insertAdjacentHTML(
       const heading = document.createElement(headingLevel);
       heading.textContent = project.title;
 
+      const date = document.createElement('p');
+      date.textContent = `Project Date: ${project.year}`;
+
       article.innerHTML = `
-        ${heading.outerHTML} <!-- Insert dynamic heading -->
+        ${heading.outerHTML}
         <img src="${project.image || 'default-image.jpg'}" alt="${project.title || 'Untitled Project'}">
         <p>${project.description || 'No description available'}</p>
       `;
