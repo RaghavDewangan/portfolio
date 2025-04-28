@@ -98,34 +98,31 @@ document.body.insertAdjacentHTML(
   // .catch(error => console.error('Error loading data:', error));
 
   export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-
     if (!containerElement) {
       console.error('Invalid container element');
       return;
     }
-
+  
     containerElement.innerHTML = '';
-
+  
     const projectsTitle = document.querySelector('.projects-title');
-
+  
     if (projectsTitle) {
       projectsTitle.textContent = `${projects.length} Projects`;
     }
-
+  
     projects.forEach(project => {
       const article = document.createElement('article');
-      const heading = document.createElement(headingLevel);
-      heading.textContent = project.title;
-
-      const date = document.createElement('p');
-      date.textContent = `Project Date: ${project.year}`;
-
+  
       article.innerHTML = `
-        ${heading.outerHTML}
+        <${headingLevel}>${project.title || 'Untitled Project'}</${headingLevel}>
         <img src="${project.image || 'default-image.jpg'}" alt="${project.title || 'Untitled Project'}">
-        <p>${project.description || 'No description available'}</p>
+        <div class="project-content">
+          <p>${project.description || 'No description available'}</p>
+          <p class="project-year">${project.year || 'Year unknown'}</p>
+        </div>
       `;
-
+  
       containerElement.appendChild(article);
     });
   }
