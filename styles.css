@@ -264,3 +264,72 @@ button:hover {
   height: 150px;  /* Keep aspect ratio */
   margin-bottom: 1rem;
 }
+
+/*projects pie plot */
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.5rem; /* Space between legend items */
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  list-style: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* Smaller than container gap for proximity */
+  min-width: 0; /* Helps with text overflow */
+}
+
+.swatch {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color);
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  margin: 0.25rem 0.5rem;
+}
+
+.legend-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.legend-value {
+  font-style: normal;
+  opacity: 0.7;
+  font-size: 0.9em;
+  margin-left: 0.25em;
+}
+
+.chart-container {
+  display: flex;
+  gap: 2rem; 
+  align-items: center; 
+  margin: 1rem 0;
+}
+
+#projects-pie-plot {
+  flex: 0 0 auto; 
+  max-width: 400px; 
+}
+
+.legend {
+  flex: 1; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
