@@ -1,7 +1,7 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-const projects = await fetchJSON('../lib/projects.json');
+let projects = await fetchJSON('../lib/projects.json');
 
 const projectsContainer = document.querySelector('.projects');
 
@@ -9,14 +9,38 @@ renderProjects(projects, projectsContainer, 'h2');
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
-let data = [
-    { value: 1, label: 'apples' },
-    { value: 2, label: 'oranges' },
-    { value: 3, label: 'mangos' },
-    { value: 4, label: 'pears' },
-    { value: 5, label: 'limes' },
-    { value: 5, label: 'cherries' },
-  ];
+// year of the projects for the legend
+
+let rolledData = d3.rollups(
+    projects,
+    (v) => v.length,
+    (d) => d.year,
+);
+
+let data = rolledData.map(([year, count]) => {
+    return { value: count, label: year };
+});
+
+//search bar
+let query = '';
+
+let searchInput = document.querySelector('.searchBar');
+
+searchInput.addEventListener('change', (event) => {
+    query = event.target.value;
+
+    let filteredProjects = projects.filter((project) => {
+        let values = Object.values(project).join('\n').toLowerCase();
+        return values.includes(query.toLowerCase());
+    });
+
+    renderProjects(filteredProjects, projectsContainer, 'h2');
+})
+
+
+
+
+
 let sliceGenerator = d3.pie().value((d) => d.value);
 let arcData = sliceGenerator(data);
 let arcs = arcData.map((d) => arcGenerator(d));
@@ -28,6 +52,7 @@ arcs.forEach((arc, index) => {
 });
 
 let legend = d3.select('.legend');
+
 data.forEach((d, idx) => {
   legend
     .append('li')
