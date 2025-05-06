@@ -1,0 +1,5 @@
+# Ignore generated analysis files
+meta/loc.csv
+
+# Ignore node dependencies
+node_modules/
