@@ -350,3 +350,56 @@ path {
     fill: var(--color);
   }
 }
+
+/* stats styling */ 
+#stats {
+  margin: 1.5rem 0;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.stats dt {
+  font-weight: 500;
+  color: CanvasText;
+}
+
+.stats dd {
+  margin: 0;
+  font-weight: 600;
+  color: CanvasText;
+}
+
+.stats abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted #999;
+  cursor: help;
+}
+
+/* Compact mobile view */
+@media (max-width: 600px) {
+  .stats {
+    gap: 1rem;
+  }
+}
+
+/* gridlines */
+.gridlines line {
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+  opacity: 0.08;
+}
