@@ -551,6 +551,7 @@ circle.selected {
   stroke-width: 1.5px;
   stroke: currentColor;
   opacity: 0.9;
+  fill: #87CEEB
 }
 
 @keyframes pulse {
