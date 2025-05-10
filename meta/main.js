@@ -277,8 +277,8 @@ function updateTooltipPosition(event) {
     const scrollX = window.scrollX || window.pageXOffset;
     const scrollY = window.scrollY || window.pageYOffset;
     
-    tooltip.style.left = `${event.clientX + scrollX}px`;
-    tooltip.style.top = `${event.clientY + scrollY}px`; // original code doesnt work, github fix
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY}px`; // original code doesnt work, github fix
 }
 
 let data = await loadData();
