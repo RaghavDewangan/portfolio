@@ -295,19 +295,18 @@ function brushed(event) {
     isCommitSelected(selection, d),
     );
     renderSelectionCount(selection);
+    renderLanguageBreakdown(selection);
 }
 
 function isCommitSelected(selection, commit) {
     if (!selection) return false;
     
-    // Convert brush coordinates to data domain
     const [[x0, y0], [x1, y1]] = selection;
     const dateMin = xScale.invert(x0);
     const dateMax = xScale.invert(x1);
-    const hourMin = yScale.invert(y1); // Note: y-axis is inverted
+    const hourMin = yScale.invert(y1);
     const hourMax = yScale.invert(y0);
     
-    // Check if commit falls within ranges
     return commit.datetime >= dateMin &&
            commit.datetime <= dateMax &&
            commit.hourFrac >= hourMin && 
@@ -325,6 +324,40 @@ function renderSelectionCount(selection) {
     } commits selected`;
   
     return selectedCommits;
+  }
+
+  function renderLanguageBreakdown(selection) {
+    const selectedCommits = selection
+      ? commits.filter((d) => isCommitSelected(selection, d))
+      : [];
+    const container = document.getElementById('language-breakdown');
+  
+    if (selectedCommits.length === 0) {
+      container.innerHTML = '';
+      return;
+    }
+    const requiredCommits = selectedCommits.length ? selectedCommits : commits;
+    const lines = requiredCommits.flatMap((d) => d.lines);
+  
+    // Use d3.rollup to count lines per language
+    const breakdown = d3.rollup(
+      lines,
+      (v) => v.length,
+      (d) => d.type,
+    );
+  
+    // Update DOM with breakdown
+    container.innerHTML = '';
+  
+    for (const [language, count] of breakdown) {
+      const proportion = count / lines.length;
+      const formatted = d3.format('.1~%')(proportion);
+  
+      container.innerHTML += `
+              <dt>${language}</dt>
+              <dd>${count} lines (${formatted})</dd>
+          `;
+    }
   }
 
 let data = await loadData();
