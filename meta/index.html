@@ -14,6 +14,15 @@
     <div id="stats"></div>
     <h3>Commits by time of day</h3>
     <div id="chart"></div>
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+        <dt>Commit</dt>
+        <dd>
+          <a href="" id="commit-link" target="_blank"></a>
+        </dd>
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
+        <!-- Add: Time, author, lines edited -->
+    </dl>
     <script type="module" src="../global.js"></script>
     <script type="module" src="../meta/main.js"></script>
 </body>
