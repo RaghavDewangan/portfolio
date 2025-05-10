@@ -172,7 +172,11 @@ function renderScatterPlot(data, commits) {
     const width = 1000;
     const height = 600;
     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
-
+    const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+    const rScale = d3
+    .scaleSqrt() // Change only this line
+    .domain([minLines, maxLines])
+    .range([2, 20]);
 
     const usableArea = {
         top: margin.top,
@@ -182,6 +186,8 @@ function renderScatterPlot(data, commits) {
         width: width - margin.left - margin.right,
         height: height - margin.top - margin.bottom,
     };
+
+    const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
 
     const svg = d3
     .select('#chart')
@@ -228,18 +234,22 @@ function renderScatterPlot(data, commits) {
     
     dots
   .selectAll('circle')
-  .data(commits)
+  .data(sortedCommits)
   .join('circle')
   .attr('cx', (d) => xScale(d.datetime))
   .attr('cy', (d) => yScale(d.hourFrac))
   .attr('r', 5)
   .attr('fill', 'steelblue')
+  .attr('r', (d) => rScale(d.totalLines))
+  .style('fill-opacity', 0.7)
   .on('mouseenter', (event, commit) => {
+    d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
     renderTooltipContent(commit);
     updateTooltipVisibility(true);
     updateTooltipPosition(event);
   })
   .on('mouseleave', () => {
+    d3.select(event.currentTarget).style('fill-opacity', 0.7);
     updateTooltipVisibility(false);
   });
 }
@@ -268,7 +278,7 @@ function updateTooltipPosition(event) {
     const scrollY = window.scrollY || window.pageYOffset;
     
     tooltip.style.left = `${event.clientX + scrollX}px`;
-    tooltip.style.top = `${event.clientY + scrollY}px`;
+    tooltip.style.top = `${event.clientY + scrollY}px`; // original code doesnt work, github fix
 }
 
 let data = await loadData();
