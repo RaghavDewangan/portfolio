@@ -1,5 +1,7 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+let xScale, yScale; //global scale ref
+
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
       ...row,
@@ -195,20 +197,22 @@ function renderScatterPlot(data, commits) {
     .attr('viewBox', `0 0 ${width} ${height}`)
     .style('overflow', 'visible');
 
+
     const gridlines = svg
     .append('g')
     .attr('class', 'gridlines')
     .attr('transform', `translate(${usableArea.left}, 0)`);
 
 
+    createBrushSelector(svg); // brush selector for d3
 
-    const xScale = d3
+    xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
     .range([0, width])
     .nice();
 
-    const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
+    yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
 
     xScale.range([usableArea.left, usableArea.right]);
     yScale.range([usableArea.bottom, usableArea.top]);
@@ -252,6 +256,7 @@ function renderScatterPlot(data, commits) {
     d3.select(event.currentTarget).style('fill-opacity', 0.7);
     updateTooltipVisibility(false);
   });
+
 }
 
 function renderTooltipContent(commit) {
@@ -279,6 +284,49 @@ function updateTooltipPosition(event) {
     tooltip.style.top = `${event.clientY}px`; // original code doesnt work, github fix
 }
 
+function createBrushSelector(svg) {
+    svg.call(d3.brush().on('start brush end', brushed));
+    svg.selectAll('.dots, .overlay ~ *').raise();
+}
+
+function brushed(event) {
+    const selection = event.selection;
+    d3.selectAll('circle').classed('selected', (d) =>
+    isCommitSelected(selection, d),
+    );
+    renderSelectionCount(selection);
+}
+
+function isCommitSelected(selection, commit) {
+    if (!selection) return false;
+    
+    // Convert brush coordinates to data domain
+    const [[x0, y0], [x1, y1]] = selection;
+    const dateMin = xScale.invert(x0);
+    const dateMax = xScale.invert(x1);
+    const hourMin = yScale.invert(y1); // Note: y-axis is inverted
+    const hourMax = yScale.invert(y0);
+    
+    // Check if commit falls within ranges
+    return commit.datetime >= dateMin &&
+           commit.datetime <= dateMax &&
+           commit.hourFrac >= hourMin && 
+           commit.hourFrac <= hourMax;
+}
+
+function renderSelectionCount(selection) {
+    const selectedCommits = selection
+      ? commits.filter((d) => isCommitSelected(selection, d))
+      : [];
+  
+    const countElement = document.querySelector('#selection-count');
+    countElement.textContent = `${
+      selectedCommits.length || 'No'
+    } commits selected`;
+  
+    return selectedCommits;
+  }
+
 let data = await loadData();
 
 let commits = processCommits(data);
@@ -286,3 +334,4 @@ let commits = processCommits(data);
 renderCommitInfo(data, commits);
 
 renderScatterPlot(data, commits);
+
