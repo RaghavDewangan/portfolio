@@ -264,8 +264,11 @@ function updateTooltipVisibility(isVisible) {
 
 function updateTooltipPosition(event) {
     const tooltip = document.getElementById('commit-tooltip');
-    tooltip.style.left = `${event.clientX}px`;
-    tooltip.style.top = `${event.clientY}px`;
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+    
+    tooltip.style.left = `${event.clientX + scrollX}px`;
+    tooltip.style.top = `${event.clientY + scrollY}px`;
 }
 
 let data = await loadData();
