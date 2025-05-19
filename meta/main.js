@@ -64,6 +64,7 @@ function updateCommitSliderUI() {
   filterCommitsByTime();
   renderCommitInfo(data, filteredCommits);
   updateScatterPlot(data, filteredCommits);
+  renderFileStats();
 }
 
 function renderCommitInfo(data, commits) {
@@ -94,6 +95,28 @@ function renderCommitInfo(data, commits) {
   addMetric('Avg file size', `${Math.round(d3.mean(fileGroups, d => d[1]))} lines`);
   addMetric('Longest File', `${d3.max(fileGroups, d => d[1])} lines`);
   addMetric('Busiest Period', busiestPeriod);
+}
+
+function renderFileStats() {
+  let lines = filteredCommits.flatMap((d) => d.lines);
+  let files = d3.groups(lines, (d) => d.file).map(([name, lines]) => ({ name, lines }));
+
+  const dl = d3.select('.files');
+  dl.selectAll('div').remove();
+
+  let filesContainer = dl.selectAll('div')
+    .data(files)
+    .enter()
+    .append('div');
+
+  filesContainer.append('dt')
+    .style('grid-column', '1')
+    .append('code')
+    .text(d => d.name);
+
+  filesContainer.append('dd')
+    .style('grid-column', '2')
+    .text(d => `${d.lines.length} lines`);
 }
 
 function updateScatterPlot(data, commitsToUse) {
