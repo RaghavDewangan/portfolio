@@ -578,3 +578,18 @@ circle:hover {
   stroke-dasharray: 5 3;
   animation: marching-ants 2s linear infinite;
 }
+
+/* meta commit filter */
+#commit-filter {
+  display: flex;
+  align-items: vertical;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+#commit-filter time {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 0.9em;
+  color: CanvasText;
+}
