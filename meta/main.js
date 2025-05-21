@@ -98,8 +98,10 @@ function renderCommitInfo(data, commits) {
 }
 
 function renderFileStats() {
+  let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
   let lines = filteredCommits.flatMap((d) => d.lines);
   let files = d3.groups(lines, (d) => d.file).map(([name, lines]) => ({ name, lines }));
+  files = d3.sort(files, d => -d.lines.length);
 
   const dl = d3.select('.files');
   dl.selectAll('div').remove();
@@ -110,13 +112,17 @@ function renderFileStats() {
     .append('div');
 
   filesContainer.append('dt')
-    .style('grid-column', '1')
-    .append('code')
-    .text(d => d.name);
+  .style('grid-column', '1')
+  .html(d => `<code>${d.name}</code><small>${" - " + d.lines.length} lines</small>`);
 
   filesContainer.append('dd')
     .style('grid-column', '2')
-    .text(d => `${d.lines.length} lines`);
+    .selectAll('div')
+    .data(d => d.lines)
+    .enter()
+    .append('div')
+    .attr('class', 'line')
+    .style('background', d => fileTypeColors(d.type));
 }
 
 function updateScatterPlot(data, commitsToUse) {
