@@ -12,25 +12,38 @@
     <p>Codebase Statistics and Reports</p>
     <div class="profile-stats"></div>
     <div id="stats"></div>
+
     <h3>Commits by time of day</h3>
     <div id="commit-filter">
         <label for="commit-slider">Show commits until:</label>
         <input type="range" id="commit-slider" min="0" max="100" />
         <time id="commit-max-time"></time>
     </div>
-    <dl class="files"></dl>
-    <div id="chart"></div>
+
+    <div id="scrolly-1">
+        <div id="scatter-story">
+            <p>Some filler text here</p>
+        </div>
+        <div id="scatter-plot">
+            <div id="chart"></div>
+            <p id="selection-count">No commits selected</p>
+            <dl id="language-breakdown" class="stats"></dl>
+        </div>
+        
+    </div>
+
     <dl id="commit-tooltip" class="info tooltip" hidden>
         <dt>Commit</dt>
         <dd>
-          <a href="" id="commit-link" target="_blank"></a>
+            <a href="" id="commit-link" target="_blank"></a>
         </dd>
         <dt>Date</dt>
         <dd id="commit-date"></dd>
-        <!-- Add: Time, author, lines edited -->
     </dl>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+
+    <dl class="files"></dl>
+    
+    <script src="https://unpkg.com/scrollama"></script>
     <script type="module" src="../global.js"></script>
     <script type="module" src="../meta/main.js"></script>
 </body>
